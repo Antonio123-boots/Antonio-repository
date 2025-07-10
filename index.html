@@ -1,34 +1,58 @@
+<!-- Declara o tipo do documento como HTML5 -->
 <!DOCTYPE html>
+<!-- Início do elemento HTML, define o idioma como português do Brasil -->
 <html lang="pt-BR">
+<!-- Cabeçalho da página -->
 <head>
+    <!-- Define a codificação de caracteres como UTF-8 -->
     <meta charset="UTF-8">
+    <!-- Responsividade para dispositivos móveis -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título da página -->
     <title>Lista de Tarefas</title>
+    <!-- Importa o arquivo de estilos CSS -->
     <link rel="stylesheet" href="css/estilo.css">
-</head>
+</head> <!-- Fim do cabeçalho -->
+<!-- Corpo da página -->
 <body>
+    <!-- Container principal da aplicação -->
     <div class="container">
+        <button id="temabtn" class="tema-btn">🌓</button>
+        <!-- Título principal -->
         <h1>Lista de Tarefas</h1>
         
+        
+        <!-- Container do campo de entrada e botão -->
         <div class="input-container">
+            <!-- Campo de texto para nova tarefa -->
             <input type="text" id="tarefaInput" placeholder="Adicione uma nova tarefa...">
+            <!-- Botão para adicionar tarefa -->
             <button id="adicionarBtn">Adicionar</button>
-        </div>
+        </div> <!-- Fim input-container -->
         
+        <!-- Container dos filtros -->
         <div class="filtros">
+            <!-- Botão para mostrar todas as tarefas -->
             <button id="todasBtn" class="ativo">Todas</button>
+            <!-- Botão para mostrar tarefas ativas -->
             <button id="ativasBtn">Ativas</button>
+            <!-- Botão para mostrar tarefas completas -->
             <button id="completasBtn">Completas</button>
-        </div>
+        </div> <!-- Fim filtros -->
         
+        <!-- Lista de tarefas -->
         <ul id="listaTarefas"></ul>
         
+        <!-- Container do status e botão limpar completas -->
         <div class="status">
+            <!-- Contador de tarefas restantes -->
             <span id="contador">0 itens restantes</span>
+            <!-- Botão para limpar tarefas completas -->
             <button id="limparCompletasBtn">Limpar completas</button>
-        </div>
-    </div>
+        </div> <!-- Fim status -->
+    </div> <!-- Fim container -->
 
+    <!-- Importa o arquivo JavaScript -->
     <script src="js/func.js"></script>
-</body>
-</html>
+</body> <!-- Fim do corpo -->
+</html> <!-- Fim do documento HTML -->
