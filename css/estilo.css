@@ -13,7 +13,7 @@
   --dark-bg: #f5f5f5; /* Fundo principal claro */
   --darker-bg: #e0e0e0; /* Fundo secundário claro*/
   --card-bg: #ffffff; /* Fundo dos cards claro */
-  --primary: #6200ee; /* Cor primária clara */
+  --primary: #bb86fc; /* Cor primária clara */
   --text: #333333; /* Cor do texto principal claro */
   --text-secondary: #666666 ; /* Cor do texto secundário claro */
 }
@@ -252,6 +252,16 @@ h1 { /* Título principal */
   color: var(--text-secondary);
   padding: 2rem;
   font-style: italic;
+}
+
+.tema-azul{
+  background-color: var(--primary);
+  color: var(--card-bg) ;
+  align-items: center;
+  font-size: 18px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
 }
 
 /* Animações */

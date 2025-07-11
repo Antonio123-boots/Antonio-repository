@@ -30,6 +30,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Define o tema atual, padrão é 'dark'
     const temaatual = localStorage.getItem('tema') || 'dark';
+    
+
 
     //Aplica o tema salvo ao carregar a página
     if (temaatual === 'light') {
@@ -50,6 +52,25 @@ document.addEventListener('DOMContentLoaded', function() {
             temabtn.style.background = '#111'; // preto
             temabtn.textContent = '🌙';
             localStorage.setItem('tema', 'light'); //salva o tema claro
+        } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            temabtn.style.background = '#111'; // preto
+            temabtn.textContent = '🌓';
+            localStorage.setItem('tema', 'dark'); //salva o tema escuro
+        }
+    }
+
+    const temaBtnAzul = document.getElementById ('azulBtn');
+
+    const temaatual = document.getItem ('tema'); || 'blue';
+
+    function alternarTema() {
+        let temaatual = localStorage.getItem('tema') || 'blue';
+        if (temaatual === 'blue') {
+            document.documentElement.setAttribute('data-theme', 'light');
+            temaBtnAzul.style.background = 'blue';
+            temaBtnAzul.textContent = 'MUDAR COR';
+            localStorage.setItem('tema', 'blue');
         } else {
             document.documentElement.setAttribute('data-theme', 'dark');
             temabtn.style.background = '#111'; // preto
