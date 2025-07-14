@@ -29,9 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const temabtn = document.getElementById('temabtn');
 
     // Define o tema atual, padrão é 'dark'
-    const temaatual = localStorage.getItem('tema') || 'dark';
-    
-
+    const temaatual = localStorage.getItem('modo') || 'dark';
 
     //Aplica o tema salvo ao carregar a página
     if (temaatual === 'light') {
@@ -46,47 +44,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
     //função para alternar o tema
     function alternarTema() {
-        let temaatual = localStorage.getItem('tema') || 'dark';
+        let temaatual = localStorage.getItem('modo') || 'dark';
         if (temaatual === 'dark') {
             document.documentElement.setAttribute('data-theme', 'light');
             temabtn.style.background = '#111'; // preto
             temabtn.textContent = '🌙';
-            localStorage.setItem('tema', 'light'); //salva o tema claro
+            localStorage.setItem('modo', 'light'); //salva o tema claro
         } else {
             document.documentElement.setAttribute('data-theme', 'dark');
             temabtn.style.background = '#111'; // preto
             temabtn.textContent = '🌓';
-            localStorage.setItem('tema', 'dark'); //salva o tema escuro
+            localStorage.setItem('modo', 'dark'); //salva o tema escuro
         }
     }
 
-    const temaBtnAzul = document.getElementById ('azulBtn');
-
-    const temaatual = document.getItem ('tema'); || 'blue';
-
-    function alternarTema() {
-        let temaatual = localStorage.getItem('tema') || 'blue';
-        if (temaatual === 'blue') {
-            document.documentElement.setAttribute('data-theme', 'light');
-            temaBtnAzul.style.background = 'blue';
-            temaBtnAzul.textContent = 'MUDAR COR';
-            localStorage.setItem('tema', 'blue');
-        } else {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            temabtn.style.background = '#111'; // preto
-            temabtn.textContent = '🌓';
-            localStorage.setItem('tema', 'dark'); //salva o tema escuro
-        }
-    }
+    
 
     //Adiciona o evento ao clique do botão tema
     temabtn.addEventListener('click', alternarTema);
 
     // Se o usuário preferir tema claro, aplica o tema claro apenas se não houver tema salvo
-    if (!localStorage.getItem('tema') && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+    if (!localStorage.getItem('modo') && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
         document.documentElement.setAttribute('data-theme', 'light');
         temabtn.textContent = '🌙';
-        localStorage.setItem('tema', 'light');
+        localStorage.setItem('modo', 'light');
     }
 
     // Evento para adicionar nova tarefa ao clicar no botão
@@ -250,6 +231,35 @@ document.addEventListener('DOMContentLoaded', function() {
         const contagem = tarefas.filter(tarefa => !tarefa.completa).length;
         contador.textContent = `${contagem} ${contagem === 1 ? 'item' : 'itens'} restantes`;
     }
+    
+
+    // Seleciona o botão de cor azul
+    const mudarCor = document.getElementById('mudarCor');
+    // Aplica o tema azul se estiver salvo
+    const temaAzul = localStorage.getItem('tema') === 'azul';
+    if (temaAzul) {
+        document.documentElement.classList.add('tema-azul');
+        mudarCor.textContent = 'Padrão';
+    } else {
+        document.documentElement.classList.remove('tema-azul');
+        mudarCor.textContent = 'Azul';
+    }
+
+    function alternarAzul() {
+        const temaAzul = localStorage.getItem('tema') === 'azul';
+        if (temaAzul) {
+            document.documentElement.classList.remove('tema-azul');
+            localStorage.setItem('tema', 'padrao');
+            mudarCor.textContent = 'Azul';
+        } else {
+            document.documentElement.classList.add('tema-azul');
+            localStorage.setItem('tema', 'azul');
+            mudarCor.textContent = 'Padrão';
+        }
+    }
+    mudarCor.addEventListener('click', alternarAzul);
+
+
     
     // Função para salvar as tarefas no localStorage
     function salvarTarefas() {
